@@ -1,0 +1,22 @@
+.weather__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 240px;
+}
+
+.weather__info-item {
+    height: 40px;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #BF8430;
+    color: #FFF;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.weather__info-item span:first-child {
+    font-weight: bold;
+}

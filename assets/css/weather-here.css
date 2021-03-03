@@ -1,0 +1,74 @@
+.weather-here__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    font-family: 'Shippori Mincho', serif;
+}
+
+.weather-here__body {
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    margin-bottom: 32px;
+}
+
+.weather-here__main {
+    display: flex;
+    height: fit-content;
+    width: 50%;
+    flex-direction: column;
+}
+
+.weather-here__main span {
+    font-weight: bold;
+}
+
+.weather-here__city {
+    font-size: 26px;
+}
+
+.weather-here__icon {
+    height: 214px;
+    width: 50%;
+}
+
+.weather-here__temperature {
+    height: 214px;
+    width: 50%;
+}
+
+.weather-here__header span {
+    font-size: 26px;
+}
+
+.weather-here__temperature {
+    box-sizing: border-box;
+    font-size: 70px;
+    padding: 64px;
+}
+
+.weather-here .weather__info {
+    width: 45%;
+}
+
+.weather-here__icon img {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 900px) {
+    .weather-here__body {
+        flex-direction: column;
+    }
+
+    .weather-here__main, .weather-here .weather__info {
+        width: 100%;
+    }
+}
+
+@media (max-width: 450px) {
+    .weather-here__main .row {
+        flex-direction: column;
+    }
+}

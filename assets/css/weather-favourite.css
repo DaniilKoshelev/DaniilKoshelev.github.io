@@ -1,0 +1,41 @@
+.weather-favourite__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.weather-item__icon img {
+    width: 32px;
+    height: 32px;
+}
+
+.weather-item {
+    width: 45%;
+}
+
+.weather-item__main {
+    margin-top: 40px;
+}
+
+.weather-item__main span {
+    font-weight: bold;
+}
+
+.weather-favourite__header span:first-child {
+    font-size: 20px;
+}
+
+.weather-favourite__header {
+    font-family: 'Shippori Mincho', serif;
+}
+
+.add-city {
+    width: 25%;
+    min-width: 5%;
+}
+
+@media (max-width: 900px) {
+    .weather-item {
+        width: 100%;
+    }
+}

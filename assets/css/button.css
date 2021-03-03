@@ -1,0 +1,15 @@
+button {
+    width: 196px;
+    height: 40px;
+    color: #A66100;
+    background-color: #FFC573;
+    border-radius: 5px;
+}
+
+.button-rounded {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    color: #FFFFFF;
+    background-color: #A66100;
+}

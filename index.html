@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css">
+    <title>Weather forecast</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <header></header>
+    <div class="wrapper">
+        <div class="weather-here">
+            <div class="weather-here__header">
+                <span>
+                    Погода здесь
+                </span>
+                <button>
+                    Обновить геолокацию
+                </button>
+            </div>
+            <div class="weather-here__body">
+                <div class="weather-here__main">
+                    <span class="weather-here__city">
+                        Saint Petersburg
+                    </span>
+                    <div class="row">
+                        <span class="weather-here__icon">
+                            <img src="assets/img/cloud.svg" alt="cloud">
+                        </span>
+                        <span class="weather-here__temperature">
+                            69°C
+                        </span>
+                    </div>
+                </div>
+                <div class="weather__info">
+                    <div class="weather__info-item">
+                        <span>Ветер</span>
+                        <span>Moderate breeze, 6.0 m/s, North-northwest</span>
+                    </div>
+                    <div class="weather__info-item">
+                        <span>Облачность</span>
+                        <span>Broken clouds</span>
+                    </div>
+                    <div class="weather__info-item">
+                        <span>Давление</span>
+                        <span>1013 hpa</span>
+                    </div>
+                    <div class="weather__info-item">
+                        <span>Влажность</span>
+                        <span>52 %</span>
+                    </div>
+                    <div class="weather__info-item">
+                        <span>Координаты</span>
+                        <span>[59.88, 30.42]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weather-favourite">
+            <div class="weather-favourite__header">
+                <div class="row">
+                    <span>
+                        Избранное
+                    </span>
+                    <input type="text" placeholder="Добавить новый город" class="add-city">
+                    <button class="button-rounded">
+                        +
+                    </button>
+                </div>
+            </div>
+            <div class="weather-favourite__list">
+                <div class="weather-item">
+                    <div class="weather-item__main">
+                        <div class="row">
+                            <span>
+                                Moscow
+                            </span>
+                            <span class="weather-item__temperature">
+                                69°C
+                            </span>
+                            <span class="weather-item__icon">
+                                <img src="assets/img/cloud.svg" alt="cloud">
+                            </span>
+                            <button class="button-rounded">
+                                X
+                            </button>
+                        </div>
+                    </div>
+                    <div class="weather__info">
+                        <div class="weather__info-item">
+                            <span>Ветер</span>
+                            <span>Moderate breeze, 6.0 m/s, North-northwest</span>
+                        </div>
+                        <div class="weather__info-item">
+                            <span>Облачность</span>
+                            <span>Broken clouds</span>
+                        </div>
+                        <div class="weather__info-item">
+                            <span>Давление</span>
+                            <span>1013 hpa</span>
+                        </div>
+                        <div class="weather__info-item">
+                            <span>Влажность</span>
+                            <span>52 %</span>
+                        </div>
+                        <div class="weather__info-item">
+                            <span>Координаты</span>
+                            <span>[59.88, 30.42]</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="weather-item">
+                    <div class="weather-item__main">
+                        <div class="row">
+                            <span>
+                                Helsinki
+                            </span>
+                            <span class="weather-item__temperature">
+                                69°C
+                            </span>
+                            <span class="weather-item__icon">
+                                <img src="assets/img/cloud.svg" alt="cloud">
+                            </span>
+                            <button class="button-rounded">
+                                X
+                            </button>
+                        </div>
+                    </div>
+                    <div class="weather__info">
+                        <div class="weather__info-item">
+                            <span>Ветер</span>
+                            <span>Moderate breeze, 6.0 m/s, North-northwest</span>
+                        </div>
+                        <div class="weather__info-item">
+                            <span>Облачность</span>
+                            <span>Broken clouds</span>
+                        </div>
+                        <div class="weather__info-item">
+                            <span>Давление</span>
+                            <span>1013 hpa</span>
+                        </div>
+                        <div class="weather__info-item">
+                            <span>Влажность</span>
+                            <span>52 %</span>
+                        </div>
+                        <div class="weather__info-item">
+                            <span>Координаты</span>
+                            <span>[59.88, 30.42]</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="weather-item">
+                    <div class="weather-item__main">
+                        <div class="row">
+                            <span>
+                                Berlin
+                            </span>
+                            <span class="weather-item__temperature">
+                                69°C
+                            </span>
+                            <span class="weather-item__icon">
+                                <img src="assets/img/cloud.svg" alt="cloud">
+                            </span>
+                            <button class="button-rounded">
+                                X
+                            </button>
+                        </div>
+                    </div>
+                    <div class="weather__info">
+                        <div class="weather__info-item">
+                            <span>Ветер</span>
+                            <span>Moderate breeze, 6.0 m/s, North-northwest</span>
+                        </div>
+                        <div class="weather__info-item">
+                            <span>Облачность</span>
+                            <span>Broken clouds</span>
+                        </div>
+                        <div class="weather__info-item">
+                            <span>Давление</span>
+                            <span>1013 hpa</span>
+                        </div>
+                        <div class="weather__info-item">
+                            <span>Влажность</span>
+                            <span>52 %</span>
+                        </div>
+                        <div class="weather__info-item">
+                            <span>Координаты</span>
+                            <span>[59.88, 30.42]</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="weather-item">
+                    <div class="weather-item__main">
+                        <div class="row">
+                            <span>
+                                Prague
+                            </span>
+                            <span class="weather-item__temperature">
+                                69°C
+                            </span>
+                            <span class="weather-item__icon">
+                                <img src="assets/img/cloud.svg" alt="cloud">
+                            </span>
+                            <button class="button-rounded">
+                                X
+                            </button>
+                        </div>
+                    </div>
+                    <div class="weather__info">
+                        <div class="weather__info-item">
+                            <span>Ветер</span>
+                            <span>Moderate breeze, 6.0 m/s, North-northwest</span>
+                        </div>
+                        <div class="weather__info-item">
+                            <span>Облачность</span>
+                            <span>Broken clouds</span>
+                        </div>
+                        <div class="weather__info-item">
+                            <span>Давление</span>
+                            <span>1013 hpa</span>
+                        </div>
+                        <div class="weather__info-item">
+                            <span>Влажность</span>
+                            <span>52 %</span>
+                        </div>
+                        <div class="weather__info-item">
+                            <span>Координаты</span>
+                            <span>[59.88, 30.42]</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
