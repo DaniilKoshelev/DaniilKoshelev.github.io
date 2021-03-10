@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    list-style: none;
 }
 
 .weather-item__icon img {
@@ -29,13 +30,33 @@
     font-family: 'Shippori Mincho', serif;
 }
 
-.add-city {
-    width: 25%;
-    min-width: 5%;
+.weather-favourite__add-city {
+    flex: 1 1;
+    height: 32px;
+    background-color: #FFC573AA;
+    margin-right: 32px;
+    border-radius: 8px;
+    padding: 0 8px;
+    width: 128px;
+}
+
+.weather-favourite__form {
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+}
+
+.weather-favourite__favourite {
+    width: 55%;
+    margin-bottom: 6px;
 }
 
 @media (max-width: 900px) {
     .weather-item {
         width: 100%;
+    }
+
+    .weather-favourite__header .row {
+        flex-wrap: wrap;
     }
 }

@@ -8,21 +8,21 @@
 </head>
 <body>
     <header></header>
-    <div class="wrapper">
-        <div class="weather-here">
+    <main class="wrapper">
+        <section class="weather-here">
             <div class="weather-here__header">
-                <span>
+                <h1>
                     Погода здесь
-                </span>
+                </h1>
                 <button>
                     Обновить геолокацию
                 </button>
             </div>
             <div class="weather-here__body">
                 <div class="weather-here__main">
-                    <span class="weather-here__city">
+                    <h2 class="weather-here__city">
                         Saint Petersburg
-                    </span>
+                    </h2>
                     <div class="row">
                         <span class="weather-here__icon">
                             <img src="assets/img/cloud.svg" alt="cloud">
@@ -32,49 +32,51 @@
                         </span>
                     </div>
                 </div>
-                <div class="weather__info">
-                    <div class="weather__info-item">
+                <ul class="weather__info">
+                    <li class="weather__info-item">
                         <span>Ветер</span>
                         <span>Moderate breeze, 6.0 m/s, North-northwest</span>
-                    </div>
-                    <div class="weather__info-item">
+                    </li>
+                    <li class="weather__info-item">
                         <span>Облачность</span>
                         <span>Broken clouds</span>
-                    </div>
-                    <div class="weather__info-item">
+                    </li>
+                    <li class="weather__info-item">
                         <span>Давление</span>
                         <span>1013 hpa</span>
-                    </div>
-                    <div class="weather__info-item">
+                    </li>
+                    <li class="weather__info-item">
                         <span>Влажность</span>
                         <span>52 %</span>
-                    </div>
-                    <div class="weather__info-item">
+                    </li>
+                    <li class="weather__info-item">
                         <span>Координаты</span>
                         <span>[59.88, 30.42]</span>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
-        </div>
-        <div class="weather-favourite">
+        </section>
+        <section class="weather-favourite">
             <div class="weather-favourite__header">
                 <div class="row">
-                    <span>
+                    <h1 class="weather-favourite__favourite">
                         Избранное
-                    </span>
-                    <input type="text" placeholder="Добавить новый город" class="add-city">
-                    <button class="button-rounded">
-                        +
-                    </button>
+                    </h1>
+                    <form class="weather-favourite__form">
+                        <input type="text" placeholder="Добавить новый город" class="weather-favourite__add-city">
+                        <button class="button-rounded">
+                            +
+                        </button>
+                    </form>
                 </div>
             </div>
-            <div class="weather-favourite__list">
-                <div class="weather-item">
+            <ul class="weather-favourite__list">
+                <li class="weather-item">
                     <div class="weather-item__main">
                         <div class="row">
-                            <span>
+                            <h2>
                                 Moscow
-                            </span>
+                            </h2>
                             <span class="weather-item__temperature">
                                 69°C
                             </span>
@@ -86,35 +88,35 @@
                             </button>
                         </div>
                     </div>
-                    <div class="weather__info">
-                        <div class="weather__info-item">
+                    <ul class="weather__info">
+                        <li class="weather__info-item">
                             <span>Ветер</span>
                             <span>Moderate breeze, 6.0 m/s, North-northwest</span>
-                        </div>
-                        <div class="weather__info-item">
+                        </li>
+                        <li class="weather__info-item">
                             <span>Облачность</span>
                             <span>Broken clouds</span>
-                        </div>
-                        <div class="weather__info-item">
+                        </li>
+                        <li class="weather__info-item">
                             <span>Давление</span>
                             <span>1013 hpa</span>
-                        </div>
-                        <div class="weather__info-item">
+                        </li>
+                        <li class="weather__info-item">
                             <span>Влажность</span>
                             <span>52 %</span>
-                        </div>
-                        <div class="weather__info-item">
+                        </li>
+                        <li class="weather__info-item">
                             <span>Координаты</span>
                             <span>[59.88, 30.42]</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="weather-item">
+                        </li>
+                    </ul>
+                </li>
+                <li class="weather-item">
                     <div class="weather-item__main">
                         <div class="row">
-                            <span>
+                            <h2>
                                 Helsinki
-                            </span>
+                            </h2>
                             <span class="weather-item__temperature">
                                 69°C
                             </span>
@@ -126,35 +128,35 @@
                             </button>
                         </div>
                     </div>
-                    <div class="weather__info">
-                        <div class="weather__info-item">
+                    <ul class="weather__info">
+                        <li class="weather__info-item">
                             <span>Ветер</span>
                             <span>Moderate breeze, 6.0 m/s, North-northwest</span>
-                        </div>
-                        <div class="weather__info-item">
+                        </li>
+                        <li class="weather__info-item">
                             <span>Облачность</span>
                             <span>Broken clouds</span>
-                        </div>
-                        <div class="weather__info-item">
+                        </li>
+                        <li class="weather__info-item">
                             <span>Давление</span>
                             <span>1013 hpa</span>
-                        </div>
-                        <div class="weather__info-item">
+                        </li>
+                        <li class="weather__info-item">
                             <span>Влажность</span>
                             <span>52 %</span>
-                        </div>
-                        <div class="weather__info-item">
+                        </li>
+                        <li class="weather__info-item">
                             <span>Координаты</span>
                             <span>[59.88, 30.42]</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="weather-item">
+                        </li>
+                    </ul>
+                </li>
+                <li class="weather-item">
                     <div class="weather-item__main">
                         <div class="row">
-                            <span>
+                            <h2>
                                 Berlin
-                            </span>
+                            </h2>
                             <span class="weather-item__temperature">
                                 69°C
                             </span>
@@ -166,35 +168,35 @@
                             </button>
                         </div>
                     </div>
-                    <div class="weather__info">
-                        <div class="weather__info-item">
+                    <ul class="weather__info">
+                        <li class="weather__info-item">
                             <span>Ветер</span>
                             <span>Moderate breeze, 6.0 m/s, North-northwest</span>
-                        </div>
-                        <div class="weather__info-item">
+                        </li>
+                        <li class="weather__info-item">
                             <span>Облачность</span>
                             <span>Broken clouds</span>
-                        </div>
-                        <div class="weather__info-item">
+                        </li>
+                        <li class="weather__info-item">
                             <span>Давление</span>
                             <span>1013 hpa</span>
-                        </div>
-                        <div class="weather__info-item">
+                        </li>
+                        <li class="weather__info-item">
                             <span>Влажность</span>
                             <span>52 %</span>
-                        </div>
-                        <div class="weather__info-item">
+                        </li>
+                        <li class="weather__info-item">
                             <span>Координаты</span>
                             <span>[59.88, 30.42]</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="weather-item">
+                        </li>
+                    </ul>
+                </li>
+                <li class="weather-item">
                     <div class="weather-item__main">
                         <div class="row">
-                            <span>
+                            <h2>
                                 Prague
-                            </span>
+                            </h2>
                             <span class="weather-item__temperature">
                                 69°C
                             </span>
@@ -206,31 +208,33 @@
                             </button>
                         </div>
                     </div>
-                    <div class="weather__info">
-                        <div class="weather__info-item">
+                    <ul class="weather__info">
+                        <li class="weather__info-item">
                             <span>Ветер</span>
                             <span>Moderate breeze, 6.0 m/s, North-northwest</span>
-                        </div>
-                        <div class="weather__info-item">
+                        </li>
+                        <li class="weather__info-item">
                             <span>Облачность</span>
                             <span>Broken clouds</span>
-                        </div>
-                        <div class="weather__info-item">
+                        </li>
+                        <li class="weather__info-item">
                             <span>Давление</span>
                             <span>1013 hpa</span>
-                        </div>
-                        <div class="weather__info-item">
+                        </li>
+                        <li class="weather__info-item">
                             <span>Влажность</span>
                             <span>52 %</span>
-                        </div>
-                        <div class="weather__info-item">
+                        </li>
+                        <li class="weather__info-item">
                             <span>Координаты</span>
                             <span>[59.88, 30.42]</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+    </footer>
 </body>
 </html>

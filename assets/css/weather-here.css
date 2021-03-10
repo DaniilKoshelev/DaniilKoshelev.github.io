@@ -34,18 +34,11 @@
 }
 
 .weather-here__temperature {
-    height: 214px;
-    width: 50%;
-}
-
-.weather-here__header span {
-    font-size: 26px;
-}
-
-.weather-here__temperature {
     box-sizing: border-box;
     font-size: 70px;
     padding: 64px;
+    height: 214px;
+    width: 50%;
 }
 
 .weather-here .weather__info {
@@ -68,7 +61,7 @@
 }
 
 @media (max-width: 450px) {
-    .weather-here__main .row {
-        flex-direction: column;
+    .weather-here__temperature {
+        font-size: 40px;
     }
 }

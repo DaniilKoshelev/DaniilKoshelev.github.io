@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 240px;
+    list-style: none;
 }
 
 .weather__info-item {
@@ -15,6 +16,8 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    font-size: 12px;
+    align-items: center;
 }
 
 .weather__info-item span:first-child {
