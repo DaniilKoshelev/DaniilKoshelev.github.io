@@ -13,3 +13,13 @@ button {
     color: #FFFFFF;
     background-color: #A66100;
 }
+
+button:hover {
+    background-color: #A66100;
+    color: #FFFFFF;
+}
+
+.button-rounded:hover {
+    color: #A66100;
+    background-color: #FF9500;
+}

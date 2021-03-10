@@ -5,7 +5,7 @@
     list-style: none;
 }
 
-.weather-item__icon img {
+.weather-item__icon {
     width: 32px;
     height: 32px;
 }
@@ -16,6 +16,9 @@
 
 .weather-item__main {
     margin-top: 40px;
+    background-color: #FFC573;
+    border-radius: 8px;
+    padding-left: 8px;
 }
 
 .weather-item__main span {
