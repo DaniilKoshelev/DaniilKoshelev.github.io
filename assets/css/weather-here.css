@@ -50,6 +50,10 @@
     height: 100%;
 }
 
+.weather-here__button-small {
+    display: none;
+}
+
 @media (max-width: 900px) {
     .weather-here__body {
         flex-direction: column;
@@ -61,6 +65,20 @@
 }
 
 @media (max-width: 450px) {
+    .weather-here__button {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+    }
+
+    .weather-here__button-standard {
+        display: none;
+    }
+
+    .weather-here__button-small {
+        display: inline;
+    }
+
     .weather-here__temperature {
         font-size: 40px;
     }
