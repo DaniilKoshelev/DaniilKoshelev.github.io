@@ -15,8 +15,8 @@ const weatherFavourite = {
 
             weatherFavouriteList.append(weatherItem);
 
-            this.loadCity(city).then(weatherData => {
-                this.addHtml(weatherItem, weatherData);
+            this.loadCity(city).then(weatherDTO => {
+                this.addHtml(weatherItem, weatherDTO);
             });
         }
     },
@@ -45,15 +45,15 @@ const weatherFavourite = {
         weatherItem.innerHTML = `<p>The city ${city} is being uploaded</p><img src="assets/img/refresh.svg" alt="refresh" class="refresh-icon">`
         weatherFavouriteList.append(weatherItem);
 
-        this.loadCity(city).then(weatherData => {
-            let name = weatherData.name;
+        this.loadCity(city).then(weatherDTO => {
+            let name = weatherDTO.city;
 
             if (!localStorage.getItem(name)) {
                 localStorage.setItem(name, name);
 
                 weatherItem.setAttribute('id', `city-${name}`);
 
-                this.addHtml(weatherItem, weatherData);
+                this.addHtml(weatherItem, weatherDTO);
             } else {
                 throw new Error("The city already exists");
             }
@@ -64,21 +64,21 @@ const weatherFavourite = {
         })
     },
 
-    addHtml(weatherItem, weatherData) {
+    addHtml(weatherItem, weatherDTO) {
         let html = document.getElementById("weather-favourite-template").content.cloneNode(true);
 
         weatherItem.innerHTML = "";
         weatherItem.append(html);
-        weatherItem.setAttribute("id", `city-${name}`);
+        weatherItem.setAttribute("id", `city-${weatherDTO.city}`);
 
-        weatherFavourite.setWeatherItemAttributes(weatherItem, weatherData)
+        weatherFavourite.setWeatherItemAttributes(weatherItem, weatherDTO)
 
         let removeCityButton = weatherItem.getElementsByClassName("remove-city-button")[0];
 
         removeCityButton.addEventListener('click', () => {
-            document.getElementById(`city-${name}`).remove();
+            document.getElementById(`city-${weatherDTO.city}`).remove();
 
-            localStorage.removeItem(name);
+            localStorage.removeItem(weatherDTO.city);
         });
     },
 
