@@ -8,7 +8,7 @@ let currentLocation = {
 
 const geolocation = {
     update() {
-        return new Promise((res, rej) => {
+        return new Promise((res) => {
             navigator.geolocation.getCurrentPosition(function(position) {
                 currentLocation.longitude = position.coords.longitude;
                 currentLocation.latitude = position.coords.latitude;

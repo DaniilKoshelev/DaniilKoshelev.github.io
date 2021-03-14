@@ -23,30 +23,46 @@ const weatherFavourite = {
 
     loadCity(city) {
         return weatherAPI.getByCity(city).then(res => res.json()).then(data => {
+            if (data.cod !== 200) {
+                throw new Error(data.message);
+            }
+
             return weather.getWeatherDataFromResponseData(data);
+        }).catch(error => {
+            if (error instanceof TypeError) {
+                throw new Error("Network error");
+            }
+
+            throw error;
         });
     },
 
     addCity(city) {
+        let weatherFavouriteList = document.getElementById("weather-favourite__list");
+        let weatherItem = document.createElement("li");
+
+        weatherItem.setAttribute('class', "weather-item");
+        weatherItem.innerHTML = `<p>The city ${city} is being uploaded</p><img src="assets/img/refresh.svg" alt="refresh" class="refresh-icon">`
+        weatherFavouriteList.append(weatherItem);
+
         this.loadCity(city).then(weatherData => {
+            console.log(weatherData);
             let name = weatherData.name;
 
             if (!localStorage.getItem(name)) {
-                let weatherFavouriteList = document.getElementById("weather-favourite__list");
                 localStorage.setItem(name, name);
 
-                let weatherItem = document.createElement("li");
-
-                weatherItem.setAttribute('class', "weather-item");
                 weatherItem.setAttribute('id', `city-${name}`);
-
-                weatherFavouriteList.append(weatherItem);
 
                 this.addHtml(weatherItem, weatherData);
             } else {
                 alert("The city already exists")
             }
-        }).catch(() => alert("Network error"))
+        }).catch(error => {
+            alert(error.message);
+
+            weatherFavouriteList.removeChild(weatherItem);
+        })
     },
 
     addHtml(weatherItem, weatherData) {
