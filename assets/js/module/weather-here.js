@@ -19,46 +19,22 @@ const weatherHere = {
     },
 
     addHtml(weatherData) {
-        let weatherHereBody = document.getElementById("weather-here__body");
         const {name, temperature, pressure, wind, clouds, humidity, coords, icon} = weatherData;
 
-        weatherHereBody.innerHTML = `
-            <div class="weather-here__main">
-                <h2 class="weather-here__city">
-                    ${name}
-                </h2>
-                <div class="row">
-                    <span class="weather-here__icon">
-                         <img src="http://openweathermap.org/img/wn/${icon}@4x.png" alt="cloud">
-                    </span>
-                    <span class="weather-here__temperature">
-                        ${temperature}°C
-                    </span>
-                </div>
-            </div>
-            <ul class="weather__info">
-                <li class="weather__info-item">
-                    <span>Wind</span>
-                    <span>${wind} m/s</span>
-                </li>
-                <li class="weather__info-item">
-                    <span>Clouds</span>
-                    <span>${clouds}%</span> 
-                </li>
-                <li class="weather__info-item">
-                    <span>Pressure</span>
-                    <span>${pressure} hpa</span>
-                </li>
-                <li class="weather__info-item">
-                    <span>Humidity</span>
-                    <span>${humidity}%</span>
-                </li>
-                <li class="weather__info-item">
-                    <span>Coordinates</span>
-                    <span>${coords}</span>
-                </li>
-            </ul>
-        `
+        let weatherHereBody = document.getElementById("weather-here-body");
+        let html = document.getElementById("weather-here-template").content.cloneNode(true);
+
+        weatherHereBody.innerHTML = "";
+        weatherHereBody.append(html);
+
+        document.getElementById("weather-here-icon").innerHTML = `<img src="http://openweathermap.org/img/wn/${icon}@4x.png" alt="${icon}">`;
+        document.getElementById("weather-here-city").innerHTML = `${name}`;
+        document.getElementById("weather-here-temperature").innerHTML = `${temperature}°C`;
+        document.getElementById("weather-here-wind").innerHTML = `${wind} m/s`;
+        document.getElementById("weather-here-clouds").innerHTML = `${clouds}%`;
+        document.getElementById("weather-here-pressure").innerHTML = `${pressure} hpa`;
+        document.getElementById("weather-here-humidity").innerHTML = `${humidity}%`;
+        document.getElementById("weather-here-coords").innerHTML = `${coords}`;
     },
 };
 

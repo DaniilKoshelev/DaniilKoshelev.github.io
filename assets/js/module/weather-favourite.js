@@ -46,7 +46,6 @@ const weatherFavourite = {
         weatherFavouriteList.append(weatherItem);
 
         this.loadCity(city).then(weatherData => {
-            console.log(weatherData);
             let name = weatherData.name;
 
             if (!localStorage.getItem(name)) {
@@ -68,46 +67,24 @@ const weatherFavourite = {
     addHtml(weatherItem, weatherData) {
         const {name, temperature, pressure, wind, clouds, humidity, coords, icon} = weatherData;
 
-        weatherItem.innerHTML = `
-            <div class="weather-item__main">
-                <div class="row">
-                    <h2>
-                        ${name}
-                    </h2>
-                    <span class="weather-item__temperature">
-                        ${temperature}°C
-                    </span>
-                    <img src="http://openweathermap.org/img/wn/${icon}@4x.png" alt="cloud"  class="weather-item__icon">
-                    <button class="button-rounded" id="remove-city-${name}-button">
-                        X
-                    </button>
-                </div>
-            </div>
-            <ul class="weather__info">
-                <li class="weather__info-item">
-                    <span>Wind</span>
-                    <span>${wind} m/s</span>
-                </li>
-                <li class="weather__info-item">
-                    <span>Clouds</span>
-                    <span>${clouds}%</span> 
-                </li>
-                <li class="weather__info-item">
-                    <span>Pressure</span>
-                    <span>${pressure} hpa</span>
-                </li>
-                <li class="weather__info-item">
-                    <span>Humidity</span>
-                    <span>${humidity}%</span>
-                </li>
-                <li class="weather__info-item">
-                    <span>Coordinates</span>
-                    <span>${coords}</span>
-                </li>
-            </ul> 
-        `;
+        let html = document.getElementById("weather-favourite-template").content.cloneNode(true);
 
-        let removeCityButton = document.getElementById(`remove-city-${name}-button`);
+        weatherItem.innerHTML = "";
+        weatherItem.append(html);
+        weatherItem.setAttribute("id", `city-${name}`);
+
+        weatherItem.getElementsByClassName("weather-item__icon")[0].setAttribute('src', `http://openweathermap.org/img/wn/${icon}@4x.png`);
+        weatherItem.getElementsByClassName("weather-item__icon")[0].setAttribute('alt', `${icon}`);
+
+        weatherItem.getElementsByClassName("weather-item__name")[0].innerHTML = `${name}`;
+        weatherItem.getElementsByClassName("weather-item__temperature")[0].innerHTML = `${temperature}°C`;
+        weatherItem.getElementsByClassName("weather-item__wind")[0].innerHTML = `${wind} m/s`;
+        weatherItem.getElementsByClassName("weather-item__clouds")[0].innerHTML = `${clouds}%`;
+        weatherItem.getElementsByClassName("weather-item__pressure")[0].innerHTML = `${pressure} hpa`;
+        weatherItem.getElementsByClassName("weather-item__humidity")[0].innerHTML = `${humidity}%`;
+        weatherItem.getElementsByClassName("weather-item__coords")[0].innerHTML = `${coords}`;
+
+        let removeCityButton = weatherItem.getElementsByClassName("remove-city-button")[0];
 
         removeCityButton.addEventListener('click', () => {
             document.getElementById(`city-${name}`).remove();

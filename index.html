@@ -24,8 +24,39 @@
                     </span>
                 </button>
             </div>
-            <div class="weather-here__body" id="weather-here__body">
+            <div class="weather-here__body" id="weather-here-body">
                 <img src="assets/img/refresh.svg" alt="refresh" class="refresh-icon">
+                <template id="weather-here-template">
+                    <div class="weather-here__main">
+                        <h2 class="weather-here__city" id="weather-here-city"></h2>
+                        <div class="row">
+                            <span class="weather-here__icon" id="weather-here-icon"></span>
+                            <span class="weather-here__temperature" id="weather-here-temperature"></span>
+                        </div>
+                    </div>
+                    <ul class="weather__info">
+                        <li class="weather__info-item">
+                            <span>Wind</span>
+                            <span id="weather-here-wind"></span>
+                        </li>
+                        <li class="weather__info-item">
+                            <span>Clouds</span>
+                            <span id="weather-here-clouds"></span>
+                        </li>
+                        <li class="weather__info-item">
+                            <span>Pressure</span>
+                            <span id="weather-here-pressure"></span>
+                        </li>
+                        <li class="weather__info-item">
+                            <span>Humidity</span>
+                            <span id="weather-here-humidity"></span>
+                        </li>
+                        <li class="weather__info-item">
+                            <span>Coordinates</span>
+                            <span id="weather-here-coords"></span>
+                        </li>
+                    </ul>
+                </template>
             </div>
         </section>
         <section class="weather-favourite">
@@ -43,6 +74,42 @@
                 </div>
             </div>
             <ul class="weather-favourite__list" id="weather-favourite__list">
+                <template id="weather-favourite-template">
+                    <div class="weather-item__main">
+                        <div class="row">
+                            <h2 class="weather-item__name">${name}</h2>
+                            <span class="weather-item__temperature">
+                                ${temperature}°C
+                            </span>
+                            <img src="" alt="weather icon" class="weather-item__icon">
+                            <button class="button-rounded remove-city-button">
+                                X
+                            </button>
+                        </div>
+                    </div>
+                    <ul class="weather__info">
+                        <li class="weather__info-item">
+                            <span>Wind</span>
+                            <span class="weather-item__wind"></span>
+                        </li>
+                        <li class="weather__info-item">
+                            <span>Clouds</span>
+                            <span class="weather-item__clouds"></span>
+                        </li>
+                        <li class="weather__info-item">
+                            <span>Pressure</span>
+                            <span class="weather-item__pressure"></span>
+                        </li>
+                        <li class="weather__info-item">
+                            <span>Humidity</span>
+                            <span class="weather-item__humidity"></span>
+                        </li>
+                        <li class="weather__info-item">
+                            <span>Coordinates</span>
+                            <span class="weather-item__coords"></span>
+                        </li>
+                    </ul>
+                </template>
             </ul>
         </section>
     </main>
