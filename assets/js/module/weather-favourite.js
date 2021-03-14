@@ -1,5 +1,5 @@
 import weatherAPI from "./api/weather.js";
-import weather from "./weather.js";
+import weather from "./weather-dto.js";
 
 const weatherFavourite = {
     load() {
@@ -27,7 +27,7 @@ const weatherFavourite = {
                 throw new Error(data.message);
             }
 
-            return weather.getWeatherDataFromResponseData(data);
+            return weather.getWeatherDTOFromResponseData(data);
         }).catch(error => {
             if (error instanceof TypeError) {
                 throw new Error("Network error");
