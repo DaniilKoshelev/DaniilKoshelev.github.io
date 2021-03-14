@@ -2,35 +2,29 @@ const defaultLongitude = "30.421811199999997";
 const defaultLatitude = "59.89662719999999";
 
 let currentLocation = {
-  longitude: "",
-  latitude: ""
+  longitude: defaultLongitude,
+  latitude: defaultLatitude
 };
 
 const geolocation = {
     update() {
-        return new Promise((res) => {
+        return new Promise(res => {
             navigator.geolocation.getCurrentPosition(function(position) {
-                currentLocation.longitude = position.coords.longitude;
-                currentLocation.latitude = position.coords.latitude;
+                geolocation.setCurrentLocation(position.coords.longitude, position.coords.latitude);
 
                 res();
-            },
-            function () {
-                currentLocation.longitude = defaultLongitude;
-                currentLocation.latitude = defaultLatitude;
-
-                res()
             });
         });
     },
 
-    getLongitude() {
-        return currentLocation.longitude;
+    getCurrentLocation() {
+        return currentLocation;
     },
 
-    getLatitude() {
-        return currentLocation.latitude;
-    }
+    setCurrentLocation(long, lat) {
+        currentLocation.longitude = long;
+        currentLocation.latitude = lat;
+    },
 };
 
 export default geolocation;

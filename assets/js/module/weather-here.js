@@ -5,8 +5,10 @@ import weather from "./weather.js";
 const weatherHere = {
     load() {
         geolocation.update().then(() => {
-            let longitude = geolocation.getLongitude();
-            let latitude = geolocation.getLatitude();
+            let geoLocation = geolocation.getCurrentLocation();
+
+            let longitude = geoLocation.longitude,
+                latitude = geoLocation.latitude;
 
             weatherAPI.getByLocation(longitude, latitude).then(res => res.json()).then(data => {
                 let weatherData = weather.getWeatherDataFromResponseData(data);

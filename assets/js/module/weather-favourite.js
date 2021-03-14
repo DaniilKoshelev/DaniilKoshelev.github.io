@@ -55,7 +55,7 @@ const weatherFavourite = {
 
                 this.addHtml(weatherItem, weatherData);
             } else {
-                alert("The city already exists")
+                throw new Error("The city already exists");
             }
         }).catch(error => {
             alert(error.message);
