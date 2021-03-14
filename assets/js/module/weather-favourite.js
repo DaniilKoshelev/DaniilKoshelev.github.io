@@ -65,22 +65,13 @@ const weatherFavourite = {
     },
 
     addHtml(weatherItem, weatherData) {
-        const {city, temperature, pressure, wind, clouds, humidity, coords, icon} = weatherData;
-
         let html = document.getElementById("weather-favourite-template").content.cloneNode(true);
 
         weatherItem.innerHTML = "";
         weatherItem.append(html);
         weatherItem.setAttribute("id", `city-${name}`);
 
-        weatherItem.getElementsByClassName("weather-item__icon")[0].innerHTML = icon;
-        weatherItem.getElementsByClassName("weather-item__city")[0].innerHTML = city;
-        weatherItem.getElementsByClassName("weather-item__temperature")[0].innerHTML = temperature;
-        weatherItem.getElementsByClassName("weather-item__wind")[0].innerHTML = wind;
-        weatherItem.getElementsByClassName("weather-item__clouds")[0].innerHTML = clouds;
-        weatherItem.getElementsByClassName("weather-item__pressure")[0].innerHTML = pressure;
-        weatherItem.getElementsByClassName("weather-item__humidity")[0].innerHTML = humidity;
-        weatherItem.getElementsByClassName("weather-item__coords")[0].innerHTML = coords;
+        weatherFavourite.setWeatherItemAttributes(weatherItem, weatherData)
 
         let removeCityButton = weatherItem.getElementsByClassName("remove-city-button")[0];
 
@@ -90,6 +81,16 @@ const weatherFavourite = {
             localStorage.removeItem(name);
         });
     },
+
+    setWeatherItemAttributes(weatherItem, weatherDTO) {
+        for (let attribute in weatherDTO) {
+            weatherFavourite.setWeatherItemAttribute(weatherItem, attribute, weatherDTO[attribute]);
+        }
+    },
+
+    setWeatherItemAttribute(weatherItem, name, value) {
+        weatherItem.getElementsByClassName(`weather-item__${name}`)[0].innerHTML = value;
+    }
 };
 
 export default weatherFavourite;
