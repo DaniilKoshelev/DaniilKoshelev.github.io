@@ -67,9 +67,7 @@
                     </h1>
                     <form class="weather-favourite__form" id="weather-favourite-form">
                         <input type="text" placeholder="Add a new city" class="weather-favourite__add-city" id="add-city-input">
-                        <button class="button-rounded" id="add-city-button" type="submit">
-                            +
-                        </button>
+                        <button class="button-rounded" id="add-city-button" type="submit">+</button>
                     </form>
                 </div>
             </div>
@@ -77,14 +75,10 @@
                 <template id="weather-favourite-template">
                     <div class="weather-item__main">
                         <div class="row">
-                            <h2 class="weather-item__name">${name}</h2>
-                            <span class="weather-item__temperature">
-                                ${temperature}°C
-                            </span>
-                            <img src="" alt="weather icon" class="weather-item__icon">
-                            <button class="button-rounded remove-city-button">
-                                X
-                            </button>
+                            <h2 class="weather-item__city"></h2>
+                            <span class="weather-item__temperature"></span>
+                            <span class="weather-item__icon"></span>
+                            <button class="button-rounded remove-city-button">X</button>
                         </div>
                     </div>
                     <ul class="weather__info">

@@ -65,7 +65,7 @@ const weatherFavourite = {
     },
 
     addHtml(weatherItem, weatherData) {
-        const {name, temperature, pressure, wind, clouds, humidity, coords, icon} = weatherData;
+        const {city, temperature, pressure, wind, clouds, humidity, coords, icon} = weatherData;
 
         let html = document.getElementById("weather-favourite-template").content.cloneNode(true);
 
@@ -73,16 +73,14 @@ const weatherFavourite = {
         weatherItem.append(html);
         weatherItem.setAttribute("id", `city-${name}`);
 
-        weatherItem.getElementsByClassName("weather-item__icon")[0].setAttribute('src', `http://openweathermap.org/img/wn/${icon}@4x.png`);
-        weatherItem.getElementsByClassName("weather-item__icon")[0].setAttribute('alt', `${icon}`);
-
-        weatherItem.getElementsByClassName("weather-item__name")[0].innerHTML = `${name}`;
-        weatherItem.getElementsByClassName("weather-item__temperature")[0].innerHTML = `${temperature}°C`;
-        weatherItem.getElementsByClassName("weather-item__wind")[0].innerHTML = `${wind} m/s`;
-        weatherItem.getElementsByClassName("weather-item__clouds")[0].innerHTML = `${clouds}%`;
-        weatherItem.getElementsByClassName("weather-item__pressure")[0].innerHTML = `${pressure} hpa`;
-        weatherItem.getElementsByClassName("weather-item__humidity")[0].innerHTML = `${humidity}%`;
-        weatherItem.getElementsByClassName("weather-item__coords")[0].innerHTML = `${coords}`;
+        weatherItem.getElementsByClassName("weather-item__icon")[0].innerHTML = icon;
+        weatherItem.getElementsByClassName("weather-item__city")[0].innerHTML = city;
+        weatherItem.getElementsByClassName("weather-item__temperature")[0].innerHTML = temperature;
+        weatherItem.getElementsByClassName("weather-item__wind")[0].innerHTML = wind;
+        weatherItem.getElementsByClassName("weather-item__clouds")[0].innerHTML = clouds;
+        weatherItem.getElementsByClassName("weather-item__pressure")[0].innerHTML = pressure;
+        weatherItem.getElementsByClassName("weather-item__humidity")[0].innerHTML = humidity;
+        weatherItem.getElementsByClassName("weather-item__coords")[0].innerHTML = coords;
 
         let removeCityButton = weatherItem.getElementsByClassName("remove-city-button")[0];
 
@@ -91,7 +89,7 @@ const weatherFavourite = {
 
             localStorage.removeItem(name);
         });
-    }
+    },
 };
 
 export default weatherFavourite;

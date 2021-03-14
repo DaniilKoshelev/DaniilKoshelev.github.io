@@ -1,14 +1,16 @@
+const imageBasePath = "http://openweathermap.org/img/wn";
+
 const weatherDTO = {
     getWeatherDTOFromResponseData(responseData) {
         return {
-            name: responseData.name,
-            temperature: Math.round(responseData.main.temp),
-            pressure: responseData.main.pressure,
-            humidity: responseData.main.humidity,
-            wind: responseData.wind.speed,
-            clouds: responseData.clouds.all,
+            city: responseData.name,
+            temperature: `${Math.round(responseData.main.temp)} °C`,
+            pressure: `${responseData.main.pressure} hpa`,
+            humidity: `${responseData.main.humidity}%`,
+            wind: `${responseData.wind.speed} m/s`,
+            clouds: `${responseData.clouds.all}%`,
             coords: `[${responseData.coord.lon}, ${responseData.coord.lat}]`,
-            icon: responseData.weather[0].icon
+            icon: `<img src="${imageBasePath}/${responseData.weather[0].icon}@4x.png" alt="${responseData.weather[0].icon}">`
         }
     }
 };

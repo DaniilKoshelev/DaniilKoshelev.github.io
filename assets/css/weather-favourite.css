@@ -5,7 +5,9 @@
     list-style: none;
 }
 
-.weather-item__icon {
+.weather-item__icon img {
+    display: block;
+    margin: 0 auto;
     width: 32px;
     height: 32px;
 }
