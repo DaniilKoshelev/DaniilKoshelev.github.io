@@ -11,7 +11,7 @@ const weatherFavourite = {
 
             weatherItem.setAttribute('class', "weather-item");
             weatherItem.setAttribute('id', `city-${city}`);
-            weatherItem.innerHTML = `<p>The city ${city} is being uploaded</p><img src="assets/img/refresh.svg" alt="refresh" class="refresh-icon">`
+            weatherItem.innerHTML = `<p>The city ${city} is being uploaded</p><img src="../images/refresh.svg" alt="refresh" class="refresh-icon">`
 
             weatherFavouriteList.append(weatherItem);
 
@@ -42,7 +42,7 @@ const weatherFavourite = {
         let weatherItem = document.createElement("li");
 
         weatherItem.setAttribute('class', "weather-item");
-        weatherItem.innerHTML = `<p>The city ${city} is being uploaded</p><img src="assets/img/refresh.svg" alt="refresh" class="refresh-icon">`
+        weatherItem.innerHTML = `<p>The city ${city} is being uploaded</p><img src="../images/refresh.svg" alt="refresh" class="refresh-icon">`
         weatherFavouriteList.append(weatherItem);
 
         this.loadCity(city).then(weatherDTO => {
