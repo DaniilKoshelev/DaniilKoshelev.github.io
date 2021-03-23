@@ -1,8 +1,5 @@
 import geolocation from "./api/geolocation.js";
 import weatherAPI from "./api/weather.js";
-import weather from "./weather-dto.js";
-
-const apiError = "API error";
 
 const weatherHere = {
     load() {
@@ -11,11 +8,11 @@ const weatherHere = {
 
             weatherAPI.getByLocation(longitude, latitude)
                 .then(res => res.json())
-                .then(data => {
-                    this.addHtml(weather.getWeatherDTOFromResponseData(data));
+                .then(res => {
+                    this.addHtml(res.data);
                 })
-                .catch(() => {
-                    alert(apiError);
+                .catch(e => {
+                    alert(e);
                 });
         });
     },

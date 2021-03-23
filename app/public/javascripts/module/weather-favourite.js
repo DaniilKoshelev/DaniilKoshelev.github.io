@@ -1,5 +1,4 @@
 import weatherAPI from "./api/weather.js";
-import weather from "./weather-dto.js";
 
 const weatherFavourite = {
     load() {
