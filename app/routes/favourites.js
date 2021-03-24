@@ -27,9 +27,8 @@ router.post('/', async (req, res) => {
             response.message = "city already exists";
         } else {
             fav.push(data.name);
-            req.session.favourites = fav;
 
-            response.message = "city already exists";
+            req.session.favourites = fav;
         }
     }
 

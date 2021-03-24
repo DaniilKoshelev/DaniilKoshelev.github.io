@@ -1,5 +1,5 @@
 const favouritesAPI = {
-    getAll(longitude, latitude) {
+    getAll() {
         return fetch(`/favourites`);
     },
 

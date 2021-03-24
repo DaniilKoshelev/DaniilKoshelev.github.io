@@ -1,38 +1,35 @@
 import weatherAPI from "./api/weather.js";
+import favouritesAPI from "./api/favourites.js";
+
+const MESSAGE_SUCCESS = "success";
 
 const weatherFavourite = {
     load() {
         let weatherFavouriteList = document.getElementById("weather-favourite__list");
 
-        for (let i = 0; i < localStorage.length; i++) {
-            let city = localStorage.key(i);
-            let weatherItem = document.createElement("li");
+        favouritesAPI.getAll()
+            .then(res => res.json())
+            .then(res => {
+                let cities = res.data;
 
-            weatherItem.setAttribute('class', "weather-item");
-            weatherItem.setAttribute('id', `city-${city}`);
-            weatherItem.innerHTML = `<p>The city ${city} is being uploaded</p><img src="../images/refresh.svg" alt="refresh" class="refresh-icon">`
+                for (let city of cities) {
+                    let weatherItem = document.createElement("li");
+                    weatherItem.setAttribute('class', "weather-item");
+                    weatherItem.setAttribute('id', `city-${city}`);
 
-            weatherFavouriteList.append(weatherItem);
+                    weatherItem.innerHTML = `<p>The city ${city} is being uploaded</p><img src="../images/refresh.svg" alt="refresh" class="refresh-icon">`
+                    weatherFavouriteList.append(weatherItem);
 
-            this.loadCity(city).then(weatherDTO => {
-                this.addHtml(weatherItem, weatherDTO);
-            });
-        }
+                    this.loadCity(city).then(weatherDTO => {
+                        this.addHtml(weatherItem, weatherDTO);
+                    });
+                }
+            })
     },
 
     loadCity(city) {
-        return weatherAPI.getByCity(city).then(res => res.json()).then(data => {
-            if (data.cod !== 200) {
-                throw new Error(data.message);
-            }
-
-            return weather.getWeatherDTOFromResponseData(data);
-        }).catch(error => {
-            if (error instanceof TypeError) {
-                throw new Error("Network error");
-            }
-
-            throw error;
+        return weatherAPI.getByCity(city).then(res => res.json()).then(res => {
+            return res.data;
         });
     },
 
@@ -44,23 +41,25 @@ const weatherFavourite = {
         weatherItem.innerHTML = `<p>The city ${city} is being uploaded</p><img src="../images/refresh.svg" alt="refresh" class="refresh-icon">`
         weatherFavouriteList.append(weatherItem);
 
-        this.loadCity(city).then(weatherDTO => {
-            let name = weatherDTO.city;
+        favouritesAPI.addCity(city)
+            .then(res => res.json())
+            .then(res => {
+                if (res.message !== MESSAGE_SUCCESS) {
+                    throw new Error(res.message);
+                }
+                this.loadCity(city)
+                    .then(cityDTO => {
+                        let name = cityDTO.city;
 
-            if (!localStorage.getItem(name)) {
-                localStorage.setItem(name, name);
+                        weatherItem.setAttribute('id', `city-${name}`);
+                        this.addHtml(weatherItem, cityDTO);
+                    })
+            })
+            .catch(e => {
+                alert(e);
 
-                weatherItem.setAttribute('id', `city-${name}`);
-
-                this.addHtml(weatherItem, weatherDTO);
-            } else {
-                throw new Error("The city already exists");
-            }
-        }).catch(error => {
-            alert(error.message);
-
-            weatherFavouriteList.removeChild(weatherItem);
-        })
+                weatherFavouriteList.removeChild(weatherItem);
+            });
     },
 
     addHtml(weatherItem, weatherDTO) {
@@ -77,7 +76,7 @@ const weatherFavourite = {
         removeCityButton.addEventListener('click', () => {
             document.getElementById(`city-${weatherDTO.city}`).remove();
 
-            localStorage.removeItem(weatherDTO.city);
+            favouritesAPI.removeCity(weatherDTO.city).catch(e => alert(e));
         });
     },
 
