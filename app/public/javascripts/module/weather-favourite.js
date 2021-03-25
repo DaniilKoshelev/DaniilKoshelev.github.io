@@ -78,20 +78,22 @@ const weatherFavourite = {
 
         let removeCityButton = weatherItem.getElementsByClassName("remove-city-button")[0];
 
-        removeCityButton.addEventListener('click', () => {
-
-
-            favouritesAPI.removeCity(weatherDTO.city)
-                .then(
-                    () => document.getElementById(`city-${weatherDTO.city}`).remove()
-                )
-                .catch(e => {
-                    if (e instanceof TypeError) {
-                        alert(NETWORK_ERROR);
-                    } else {
-                        alert(e);
-                    }
-                });
+        removeCityButton.addEventListener('click', (e) => {
+                let button = e.target;
+                button.disabled = true;
+                favouritesAPI.removeCity(weatherDTO.city)
+                    .then(
+                        () => document.getElementById(`city-${weatherDTO.city}`).remove()
+                    )
+                    .catch(e => {
+                        if (e instanceof TypeError) {
+                            alert(NETWORK_ERROR);
+                        } else {
+                            alert(e);
+                        }
+                    }).finally(() => {
+                        button.disabled = false;
+                    });
         });
     },
 

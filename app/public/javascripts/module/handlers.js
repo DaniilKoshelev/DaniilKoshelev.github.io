@@ -9,11 +9,21 @@ function addCityEventHandler(event) {
 
     addCityInput.value = "";
 
-    weatherFavourite.addCity(city);
+    if (city) {
+        weatherFavourite.addCity(city);
+    } else {
+        alert('Empty input');
+    }
 }
 
 function updateGeolocationHandler() {
-    weatherHere.load();
+    navigator.permissions.query({name:'geolocation'}).then(function(result) {
+        if (result.state === 'granted'){
+            weatherHere.load();
+        } else {
+            alert("Geolocation is disabled");
+        }
+    });
 }
 
 export { addCityEventHandler, updateGeolocationHandler };

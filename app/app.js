@@ -47,7 +47,7 @@ var sessionStore = new MySQLStore({
 app.use(session({
   secret: 'keyboard cat',
   store: sessionStore,
-  cookie: { maxAge: 60000 }
+  cookie: { maxAge: 600000 }
 }))
 
 app.use('/', indexRouter);

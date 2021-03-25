@@ -15,9 +15,9 @@ router.post('/', async (req, res) => {
     let response = {};
 
     if (data.cod !== 200) {
-        response.message = data.message;
+        res.status(data.cod);
 
-        res.status(400);
+        response.message = data.message;
     } else {
         let fav = req.session.favourites || [];
 
