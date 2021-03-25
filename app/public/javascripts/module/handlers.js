@@ -1,7 +1,5 @@
 import weatherFavourite from "./weather-favourite.js";
-import geolocation from "./api/geolocation.js";
-
-const geolocationError = "Geolocation Error";
+import weatherHere from "./weather-here.js";
 
 function addCityEventHandler(event) {
     event.preventDefault();
@@ -15,9 +13,7 @@ function addCityEventHandler(event) {
 }
 
 function updateGeolocationHandler() {
-    geolocation.update().catch(() => {
-        alert(geolocationError);
-    });
+    weatherHere.load();
 }
 
 export { addCityEventHandler, updateGeolocationHandler };

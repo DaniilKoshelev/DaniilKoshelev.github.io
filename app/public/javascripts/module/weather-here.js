@@ -1,6 +1,9 @@
 import geolocation from "./api/geolocation.js";
 import weatherAPI from "./api/weather.js";
 
+const geolocationError = "Geolocation Error";
+const NETWORK_ERROR = "Network error";
+
 const weatherHere = {
     load() {
         geolocation.update().then(() => {
@@ -12,8 +15,14 @@ const weatherHere = {
                     this.addHtml(res.data);
                 })
                 .catch(e => {
-                    alert(e);
+                    if (e instanceof TypeError) {
+                        alert(NETWORK_ERROR);
+                    } else {
+                        alert(e);
+                    }
                 });
+        }).catch(() => {
+            alert(geolocationError);
         });
     },
 
