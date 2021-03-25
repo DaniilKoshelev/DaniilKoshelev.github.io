@@ -2,6 +2,7 @@ import weatherAPI from "./api/weather.js";
 import favouritesAPI from "./api/favourites.js";
 
 const MESSAGE_SUCCESS = "success";
+const NETWORK_ERROR = "Network error";
 
 const weatherFavourite = {
     load() {
@@ -56,7 +57,11 @@ const weatherFavourite = {
                     })
             })
             .catch(e => {
-                alert(e);
+                if (e instanceof TypeError) {
+                    alert(NETWORK_ERROR);
+                } else {
+                    alert(e);
+                }
 
                 weatherFavouriteList.removeChild(weatherItem);
             });
@@ -74,9 +79,19 @@ const weatherFavourite = {
         let removeCityButton = weatherItem.getElementsByClassName("remove-city-button")[0];
 
         removeCityButton.addEventListener('click', () => {
-            document.getElementById(`city-${weatherDTO.city}`).remove();
 
-            favouritesAPI.removeCity(weatherDTO.city).catch(e => alert(e));
+
+            favouritesAPI.removeCity(weatherDTO.city)
+                .then(
+                    () => document.getElementById(`city-${weatherDTO.city}`).remove()
+                )
+                .catch(e => {
+                    if (e instanceof TypeError) {
+                        alert(NETWORK_ERROR);
+                    } else {
+                        alert(e);
+                    }
+                });
         });
     },
 
